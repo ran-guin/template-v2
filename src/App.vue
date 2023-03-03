@@ -1,20 +1,19 @@
 <template lang='pug'>
   v-app
-    v-app-bar(app)
+    v-app-bar(app height='120px')
+      //- style='position: sticky'
       //- div.d-flex.align-center
-      b.myLogo Logo
+      Logo.myLogo
 
       v-spacer
 
-      v-tabs(v-model='tab' align-tabs='center')
+      v-tabs(v-model='tab' align-tabs='end')
         v-tab(v-for='tab in tabs')
           router-link.myTab(:to='tab.link || tab.name')
             v-icon(v-if='tab.icon' @click='clickMe(tab)') {{tab.icon}}
             span(v-else @click='clickMe(tab)') {{tab.name}}
 
-      v-spacer
-
-      b.myMenu Menu
+      Menu()
 
     v-main
       router-view
@@ -23,13 +22,20 @@
 
 <script>
 
-export default {
-  name: 'App',
+import Logo from '@/components/CosineLogo'
+import Menu from '@/components/Menu'
 
+export default {
+
+  name: 'App',
+  components: {
+    Logo,
+    Menu
+  },
   data: () => ({
     tab: '',
     tabs: [
-      { name: 'Home', icon: 'mdi-home' },
+      { name: 'Home' }, //, icon: 'mdi-home'
       { name: 'Test', onClick: 'customMethod' },
       { name: 'About' },
       { name: 'Search', icon: 'mdi-magnify' }
@@ -53,7 +59,7 @@ export default {
 
 <style scoped>
   .myLogo {
-    padding-right: 4rem;
+    padding-right: 0rem;
   }
   .myMenu {
     padding-left: 4rem;
