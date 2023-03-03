@@ -1,7 +1,6 @@
 <template lang='pug'>
-  v-main
-    v-container
-      h1 Home
+  Wrapper
+    h1 Dashboard
 </template>
 
 <script>
@@ -9,7 +8,7 @@
 import Wrapper from '@/layouts/Wrapper.vue'
 
 export default {
-  name: 'Home',
+  name: 'Dashboard',
   components: {
     Wrapper
   }

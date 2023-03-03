@@ -1,17 +1,16 @@
 <template lang='pug'>
   v-main
     v-container
-      h1 Home
+      TestElement
 </template>
 
 <script>
-// @ is an alias to /src
-import Wrapper from '@/layouts/Wrapper.vue'
+import TestElement from '@/components/Test.vue'
 
 export default {
-  name: 'Home',
+  name: 'Test',
   components: {
-    Wrapper
+    TestElement
   }
 }
 </script>

@@ -1,5 +1,15 @@
-<template>
-  <div class="about">
-    <h1>This is an about page</h1>
-  </div>
+<template lang='pug'>
+  v-main
+    v-container
+      h1 This is an about page
 </template>
+
+<script>
+// @ is an alias to /src
+
+export default {
+  name: 'Test',
+  components: {
+  }
+}
+</script>
