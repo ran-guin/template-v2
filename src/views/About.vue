@@ -1,7 +1,9 @@
 <template lang='pug'>
   v-main
     v-container
-      h1 This is an about page
+      h1 About Us
+      hr
+      p {{description}}
 </template>
 
 <script>
@@ -10,6 +12,9 @@
 export default {
   name: 'Test',
   components: {
-  }
+  },
+  data: () => ({
+    description: 'Fill in as required...'
+  })
 }
 </script>

@@ -2,16 +2,15 @@
   v-main
     v-container
       h1 Home
+      hr
+      p Welcome ...
 </template>
 
 <script>
-// @ is an alias to /src
-import Wrapper from '@/layouts/Wrapper.vue'
 
 export default {
   name: 'Home',
   components: {
-    Wrapper
   }
 }
 </script>

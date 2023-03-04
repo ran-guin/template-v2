@@ -7,16 +7,23 @@
 
       v-spacer
 
-      v-tabs(v-model='tab' align-tabs='end')
-        v-tab(v-for='tab in tabs')
-          router-link.myTab(:to='tab.link || tab.name')
-            v-icon(v-if='tab.icon' @click='clickMe(tab)') {{tab.icon}}
-            span(v-else @click='clickMe(tab)') {{tab.name}}
+      //- a.padded.myTab(href='Login') Login
+
+      router-link.myTab.paddedx2(to='Search')
+        v-icon mdi-magnify
+
+      //- div(style='background-color: grey')
+      //-   v-tabs(v-model='tab' align-tabs='end')
+      //-     v-tab(v-for='tab in tabs')
+      //-       router-link.myTab(:to='tab.link || tab.name')
+      //-         v-icon(v-if='tab.icon' @click='clickMe(tab)') {{tab.icon}}
+      //-         span(v-else @click='clickMe(tab)') {{tab.name}}
+
+      //- v-spacer
 
       Menu()
 
-    v-main
-      router-view
+    router-view
 
 </template>
 
@@ -35,7 +42,7 @@ export default {
   data: () => ({
     tab: '',
     tabs: [
-      { name: 'Home' }, //, icon: 'mdi-home'
+      { name: 'Home', icon: 'mdi-home' },
       { name: 'Test', onClick: 'customMethod' },
       { name: 'About' },
       { name: 'Search', icon: 'mdi-magnify' }
@@ -57,7 +64,7 @@ export default {
 }
 </script>
 
-<style scoped>
+<style>
   .myLogo {
     padding-right: 0rem;
   }
@@ -69,5 +76,11 @@ export default {
   }
   v-icon {
     color: red;
+  }
+  .padded {
+    padding: 1rem;
+  }
+  .paddedx2 {
+    padding: 2rem;
   }
 </style>

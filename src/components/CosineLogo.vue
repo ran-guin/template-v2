@@ -20,18 +20,23 @@
 </template>
 
 <script>
+
+const aspectRatio = 3
+const yaxisPos = 0.175 // dep on aspectRatio 3 -> .175; 2 -> .232; 2.5 -> .199
+
 export default {
   data () {
     return {
+    //   aspectRatio: 3, // width as factor of height
       animateType: 'math', // svg: (move along axis) OR math: (calculate ypos & loop requestAnimationFrame)
       scale: 90,
-      offset: -90,
+      offset: -70,
       cycles: 1,
-      // wave: {
-      //   offset: -90,
-      //   amplitude: 100,
-      //   wavelength: 200
-      // },
+      //  wave: {
+      //     offset: -90,
+      //     amplitude: 100,
+      //     wavelength: 200
+      //   },
       segments: [],
       delay: 0,
       sineWave: '',
@@ -104,13 +109,15 @@ export default {
   },
   computed: {
     width: function () {
-      return this.height * 2
+    //   const aspectRatio = 3
+      return this.height * aspectRatio
     },
     xaxis: function () {
       return 'M0 ' + this.height / 2 + ' L ' + this.width + ' ' + this.height / 2
     },
     yaxis: function () {
-      return 'M' + this.width * 0.243 + ' 0 L ' + this.width * 0.243 + ' ' + this.height
+      const ypos = this.width * yaxisPos
+      return 'M' + ypos + ' 0 L ' + ypos + ' ' + this.height
     },
     duration: function () {
       var seconds = 4 * this.speed

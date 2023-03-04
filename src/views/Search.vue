@@ -1,12 +1,16 @@
 <template lang='pug'>
   v-main
     v-container
+      v-row.padded
+        h1 Search
+        v-spacer
+        v-btn.btn.btn-primary(color='primary' @click='showSearch = true') Search
+          span(v-if='searchResults') Again
+      hr
       v-col
         v-row
-          h1(v-if='searchResults') Search Results [{{searchResults.length}}]:
-          h1(v-else) Pending Search Criterion...
-          v-spacer
-          v-btn.btn.btn-primary(color='primary' @click='showSearch = true') Search Again
+          p(v-if='searchResults') {{searchResults.length}} results found matching "{{searchString}}":
+          p(v-else) Pending Search Criterion...
         p &nbsp;
         hr
         p {{searchResults}}
@@ -34,8 +38,8 @@ export default {
   data () {
     return {
       searchString: '',
-      showSearch: true,
-      searchResults: []
+      showSearch: false,
+      searchResults: null
     }
   },
   methods: {
@@ -44,6 +48,7 @@ export default {
     },
     searchNow () {
       console.log('search for ' + this.searchString)
+      this.searchResults = []
     }
   }
 }
